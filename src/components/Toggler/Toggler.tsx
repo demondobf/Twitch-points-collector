@@ -4,13 +4,13 @@ import './Toggler.css';
 const Toggler = () => {
   const [isToggled, setToggled] = React.useState(false);
 
-  const toggle = () => {
+  const handleClick = () => {
     setToggled((prev) => !prev);
     chrome.runtime.sendMessage('Toggle');
   };
 
   return (
-    <button className="toggler" onClick={toggle}>
+    <button className="toggler" onClick={handleClick}>
       {isToggled ? 'Stop' : 'Start'}
     </button>
   );
