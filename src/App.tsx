@@ -1,9 +1,9 @@
-import * as React from 'react';
+import { useState } from 'react';
 
 import Summary from './components/Summary/Summary';
 
 const App = () => {
-  const [points] = React.useState(0);
+  const [points] = useState(0);
 
   return (
     <main className="app">
