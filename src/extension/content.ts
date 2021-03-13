@@ -5,30 +5,35 @@ const buttonNodeSelector = '[data-test-selector="community-points-summary"] .tw-
 
 const targetNode = document.querySelector<HTMLElement>(targetNodeSelector);
 
-const observerOptions = {
-  childList: true,
-  subtree: true,
-};
+targetNode ? handleSuccess() : handleFailure();
 
-let isButtonDiscovered = false;
-
-const observer = new MutationObserver(() => {
-  if (!isButtonDiscovered) {
-    const buttonNode = targetNode?.querySelector<HTMLButtonElement>(buttonNodeSelector);
-
-    if (buttonNode) {
-      isButtonDiscovered = true;
-      buttonNode.click();
-      Logger.log('50 points collected');
-    }
-
-    isButtonDiscovered = false;
-  }
-});
-
-if (targetNode) {
+function handleSuccess() {
   Logger.log('Initialized Points Collector');
-  observer.observe(targetNode, observerOptions);
-} else {
+
+  const observerOptions = {
+    childList: true,
+    subtree: true,
+  };
+
+  let isButtonDiscovered = false;
+
+  const observer = new MutationObserver(() => {
+    if (!isButtonDiscovered) {
+      const buttonNode = targetNode?.querySelector<HTMLButtonElement>(buttonNodeSelector);
+
+      if (buttonNode) {
+        isButtonDiscovered = true;
+        buttonNode.click();
+        Logger.log('50 points collected');
+      }
+
+      isButtonDiscovered = false;
+    }
+  });
+
+  targetNode && observer.observe(targetNode, observerOptions);
+}
+
+function handleFailure() {
   Logger.error("Couldn't initialize Points Collector");
 }
