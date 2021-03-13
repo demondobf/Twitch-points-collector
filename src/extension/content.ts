@@ -10,11 +10,6 @@ targetNode ? handleSuccess() : handleFailure();
 function handleSuccess() {
   Logger.log('Initialized Points Collector');
 
-  const observerOptions = {
-    childList: true,
-    subtree: true,
-  };
-
   let isButtonDiscovered = false;
 
   const observer = new MutationObserver(() => {
@@ -31,7 +26,12 @@ function handleSuccess() {
     }
   });
 
-  targetNode && observer.observe(targetNode, observerOptions);
+  if (targetNode) {
+    observer.observe(targetNode, {
+      childList: true,
+      subtree: true,
+    });
+  }
 }
 
 function handleFailure() {
