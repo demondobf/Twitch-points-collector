@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { useState } from 'react';
 import './Toggler.css';
 
 const Toggler = () => {
-  const [isToggled, setToggled] = React.useState(false);
+  const [isToggled, setToggled] = useState(false);
 
   const handleClick = () => {
     setToggled((prev) => !prev);
