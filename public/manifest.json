@@ -19,7 +19,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
+      "matches": ["*://www.twitch.tv/*"],
       "js": ["content.js"]
     }
   ],
