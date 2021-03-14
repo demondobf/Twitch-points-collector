@@ -5,8 +5,8 @@ const config = {
   mode: 'production',
   entry: {
     index: path.join(__dirname, 'src/index.tsx'),
-    content: path.join(__dirname, 'src/extension/content.ts'),
-    background: path.join(__dirname, 'src/extension/background.ts'),
+    content: path.join(__dirname, 'src/extension/content/content.ts'),
+    background: path.join(__dirname, 'src/extension/background/background.ts'),
   },
   output: { path: path.join(__dirname, 'dist'), filename: '[name].js' },
   module: {

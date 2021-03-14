@@ -1,7 +1,5 @@
-import Logger from '../utils/Logger';
-
-const targetNodeSelector = '[data-test-selector="chat-room-component-layout"] .chat-input';
-const buttonNodeSelector = '[data-test-selector="community-points-summary"] .tw-button--success';
+import Logger from '../../utils/Logger';
+import { targetNodeSelector, buttonNodeSelector } from './constants';
 
 const targetNode = document.querySelector<HTMLElement>(targetNodeSelector);
 
